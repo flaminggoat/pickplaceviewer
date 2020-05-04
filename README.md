@@ -3,6 +3,8 @@
 A tool for assisting with manual assembly of PCBs using surface mount components.
 The locations of components of the same type are indicated to simplify assembly.
 
+[![https://imgur.com/lyLrGrQ.png](https://imgur.com/lyLrGrQl.png)](https://imgur.com/lyLrGrQl.png)
+
 ## Usage
 
 * Generate geber files using the protel extensions (this is an option when generating with Kicad, but is the default for Altium)
@@ -18,7 +20,6 @@ The locations of components of the same type are indicated to simplify assembly.
 #### Using pipenv
 * `pipenv install`
 * `./pickplaceviewer.sh`
-
 
 ### Windows
 

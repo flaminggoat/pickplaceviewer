@@ -176,6 +176,7 @@ class PcbGui(tk.Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
+    root.title('pickplaceviewer')
     root.option_add('*tearOff', False)
 
     app = PcbGui(master=root)
