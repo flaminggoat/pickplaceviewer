@@ -1,4 +1,4 @@
-#! /usr/bin/env -S pipenv run python
+#!/usr/bin/env python3
 
 from io import BytesIO
 import tkinter as tk
@@ -43,6 +43,7 @@ class PcbGui(tk.Frame):
         self.pack()
 
         self.ctx = GerberCairoContext(8)
+        self.ctx.units = 'metric'
 
         self.layers = {}
         self.components = []
@@ -70,6 +71,8 @@ class PcbGui(tk.Frame):
                 self.layers['gbl'] = gerber.load_layer(path)
             if infile.lower().endswith('gtl'):
                 self.layers['gtl'] = gerber.load_layer(path)
+            if infile.lower().endswith('gtp'):
+                self.layers['gtp'] = gerber.load_layer(path)
         self.draw_component()
 
     def set_layer(self, layer):
@@ -105,7 +108,7 @@ class PcbGui(tk.Frame):
         if len(self.layers) > 0:
             if self.layer == "TopLayer":
                 copper_settings = RenderSettings(color=theme.COLORS['black'], alpha=0.8, mirror=False)
-                self.ctx.render_layer(self.layers["gtl"], settings=copper_settings)
+                self.ctx.render_layer(self.layers["gtl"], settings=copper_settings, verbose=True)
                 self.ctx.new_render_layer(mirror=False)
             if self.layer == "BottomLayer":
                 copper_settings = RenderSettings(color=theme.COLORS['black'], alpha=0.8, mirror=True)
@@ -120,6 +123,7 @@ class PcbGui(tk.Frame):
                 part_number = None
             for c in self.components:
                 if (c['layer'] == layer) and (c['part_number'] == part_number):
+                    print("{} {}".format(c['x_mm'],c['y_mm']))
                     self.ctx.render(gerber.primitives.Circle((c['x_mm'],c['y_mm']),1))
             self.ctx.flatten()
             buffer = BytesIO()
@@ -138,6 +142,7 @@ class PcbGui(tk.Frame):
                 line = shlex.split(line)
                 if len(line) > 0:
                     if header_read == False:
+                        # Try to determine the file type based on the contents
                         if line[0] == "Altium":
                             filetype = "Altium"
                         if line[0] == "Designator" or line[0] == "#":
@@ -154,6 +159,7 @@ class PcbGui(tk.Frame):
                             components.append(component)
                         elif filetype == "Kicad":
                             if len(line) > 6:
+                                print(line)
                                 component = {}
                                 component['designator'] =  line[0]
                                 component['part_number'] =  line[1]

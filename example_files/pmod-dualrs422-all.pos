@@ -1,0 +1,18 @@
+### Module positions - created on Thu 23 Apr 2020 12:46:04 BST ###
+### Printed by Pcbnew version kicad 5.1.5-52549c5~86~ubuntu19.10.1
+## Unit = mm, Angle = deg.
+## Side : All
+# Ref     Val       Package                        PosX       PosY       Rot  Side
+C1        1u        C_0805_2012Metric           15.9845    11.0948    0.0000  top
+C2        1u        C_0805_2012Metric           15.9845    21.6948    0.0000  top
+C3        100p      C_0805_2012Metric           23.7195    19.8873  270.0000  top
+C4        100p      C_0805_2012Metric           23.8195     9.2873  270.0000  top
+R1        121       R_0805_2012Metric            9.9845    19.0948  180.0000  top
+R2        121       R_0805_2012Metric            9.9845    16.8948  180.0000  top
+R3        121       R_0805_2012Metric            9.9845     8.8948  180.0000  top
+R4        121       R_0805_2012Metric            9.9845     6.6948  180.0000  top
+R9        121       R_0805_2012Metric           21.5595    20.3098  270.0000  top
+R10       121       R_0805_2012Metric           21.5595     9.8473  270.0000  top
+U1        MAX490E   SOIC-8_3.9x4.9mm_P1.27mm    15.9845    17.6448    0.0000  top
+U2        MAX490E   SOIC-8_3.9x4.9mm_P1.27mm    15.9845     7.3448    0.0000  top
+## End
