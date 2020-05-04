@@ -17,12 +17,18 @@ The locations of components of the same type are indicated to simplify assembly.
 
 ### Linux
 
+#### Manual (Ubuntu)
+* `sudo apt install libcairo2-dev pkg-config python3-dev python3-pip python3-tk python python3-pil.imagetk python3-cairocffi python3-cairocffi`
+* `pip3 install pcb-tools paphra_tktable`
+* `python3 ./pickplaceviewer.py`
+
 #### Using pipenv
+* install `libcairo2-dev` and `pkg-config` from your package manager
 * `pipenv install`
 * `./pickplaceviewer.sh`
 
 ### Windows
 
-* Download and install cairocffi from https://www.lfd.uci.edu/~gohlke/pythonlibs/
+* Download and install cairocffi, pycairo from https://www.lfd.uci.edu/~gohlke/pythonlibs/
 * install dependencies with pip: pillow, paphra_tktable, pcb-tools
 * run with `py pickplaceviewer.py`
